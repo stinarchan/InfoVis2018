@@ -26,7 +26,7 @@ function main()
 
     var torus_knot = new THREE.Mesh( geometry, material );
     scene.add( torus_knot );
-    
+
     loop();
 
     function loop()
