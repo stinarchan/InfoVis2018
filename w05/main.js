@@ -65,11 +65,11 @@ function main()
         geometry.faces.push( face );
     }
 
-    material.vertexColors = THREE.FaceColors;
-    for ( var i = 0; i < nfaces; i++ )
-    {
-        geometry.faces[i].color = new THREE.Color( 1, 1, 1 );
-    }
+ //   material.vertexColors = THREE.FaceColors;
+ //  for ( var i = 0; i < nfaces; i++ )
+ //   {
+ //       geometry.faces[i].color = new THREE.Color( 1, 1, 1 );
+ //   }
 
     geometry.computeFaceNormals();
 
