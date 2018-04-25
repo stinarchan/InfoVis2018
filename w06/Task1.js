@@ -31,7 +31,6 @@ function main()
          fragmentShader: document.getElementById('gouraud.frag').text, 
          uniforms: { 
          light_position: { type: 'v3', value: light.position },
-        camera_position: {type: 'v3',value: camera.position}
           }
     });
 
