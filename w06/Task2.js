@@ -35,7 +35,7 @@ function main()
     document.body.appendChild( renderer_Gouraud_Phong.domElement );
 
     var p1 = document.createElement('p');
-    p1.innerHTML = "These two are Gouraud shading in the task1 above."
+    p1.innerHTML = "These two are Gouraud shading in the Task1 above."
     document.body.appendChild( p1 );
 
     var renderer_Phong_Lambertian = new THREE.WebGLRenderer();
