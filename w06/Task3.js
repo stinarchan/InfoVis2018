@@ -60,7 +60,7 @@ function main()
         torus_knot_Gouraud.rotation.y += 0.01;
         torus_knot_Phong.rotation.x += 0.01;
         torus_knot_Phong.rotation.y += 0.01;
-        renderer_Gouraud.render( scene_Gouraud_Lambertian, camera );
-        renderer_Phong.render(scene_Gouraud_Phong, camera);
+        renderer_Gouraud.render( scene_Gouraud, camera );
+        renderer_Phong.render(scene_Phong, camera);
     }
 }
