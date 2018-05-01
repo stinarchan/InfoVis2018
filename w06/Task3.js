@@ -3,8 +3,8 @@ function main()
     var width = 500;
     var height = 500;
 
-    var scene_Gouraud_Lambertian = new THREE.Scene();
-    var scene_Gouraud_Phong = new THREE.Scene();
+    var scene_Gouraud = new THREE.Scene();
+    var scene_Phong = new THREE.Scene();
 
     var fov = 50;
     var aspect = width / height;
