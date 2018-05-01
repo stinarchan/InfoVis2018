@@ -28,7 +28,9 @@ function main()
     document.body.appendChild (renderer_Phong.domElement );
 
     var p1 = document.createElement('p');
-    p1.innerHTML = "The left is using Gouraud reflection."
+    p1.innerHTML = "These two are Blinn-Phong shading."
+    +"<br>"
+    +"The left is using Gouraud reflection."
     +"<br>"
     +"The light is using Phong reflection.";
     document.body.appendChild( p1 );
