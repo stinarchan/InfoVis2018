@@ -51,7 +51,7 @@ function main()
     +"<br>"
     +"The left is using Lambertian reflection."
     +"<br>"
-    +"The light is using Phong reflection.";
+    +"The right is using Phong reflection.";
     document.body.appendChild( p1 );
 
     var geometry = new THREE.TorusKnotGeometry( 1, 0.3, 100, 20 );
