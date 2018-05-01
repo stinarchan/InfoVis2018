@@ -37,14 +37,14 @@ function main()
     var geometry = new THREE.TorusKnotGeometry( 1, 0.3, 100, 20 );
     var material_Gouraud = new THREE.ShaderMaterial({
       vertexColors: THREE.VertexColors,
-      vertexShader: document.getElementById('Gouraud.vert').text,
-      fragmentShader:document.getElementById('Gouraud.frag').text
+      vertexShader: document.getElementById('gouraud.vert').text,
+      fragmentShader:document.getElementById('gouraud.frag').text
     });
 
     var material_Phong = new THREE.ShaderMaterial({
       vertexColors: THREE.VertexColors,
-      vertexShader: document.getElementById('Phong.vert').text,
-      fragmentShader:document.getElementById('Phong.frag').text
+      vertexShader: document.getElementById('phong.vert').text,
+      fragmentShader:document.getElementById('phong.frag').text
     });
 
     var torus_knot_Gouraud = new THREE.Mesh( geometry, material_Gouraud );
