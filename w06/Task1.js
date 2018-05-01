@@ -27,6 +27,15 @@ function main()
     renderer_Gouraud_Phong.setSize( 500, 500 );
     document.body.appendChild (renderer_Gouraud_Phong.domElement );
 
+    var p1 = document.createElement('p');
+    p1.innerHTML = "These two are Gouraud shading."
+    +"<br>"
+    +"The left is using Lambertian reflection."
+    +"<br>"
+    +"The light is using Phong reflection.";
+    document.body.appendChild( p1 );
+
+
     var geometry = new THREE.TorusKnotGeometry( 1, 0.3, 100, 20 );
     var material_Gouraud_Lambertian = new THREE.ShaderMaterial({
       vertexColors: THREE.VertexColors,
