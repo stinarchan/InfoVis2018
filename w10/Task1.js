@@ -11,7 +11,7 @@ function main()
 
     var bounds = Bounds( volume );
     screen.scene.add( bounds );
-    //material.color = new THREE.Color( "white" );
+
     var isovalue = 128;
     var surfaces = Isosurfaces( volume, isovalue );
     screen.scene.add( surfaces );
