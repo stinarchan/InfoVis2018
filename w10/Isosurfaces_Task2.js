@@ -2,7 +2,7 @@ function Isosurfaces( volume, isovalue )
 {
     var geometry = new THREE.Geometry();
     var material = new THREE.MeshLambertMaterial();
-    
+
     var smin = volume.min_value;
     var smax = volume.max_value;
     isovalue = KVS.Clamp( isovalue, smin, smax );
@@ -62,7 +62,6 @@ function Isosurfaces( volume, isovalue )
 
     geometry.computeVertexNormals();
 
-    //add color map for task1
     var cmap = [];
     for ( var i = 0; i < 256; i++ )
     {
@@ -75,8 +74,6 @@ function Isosurfaces( volume, isovalue )
     }
 
     material.color = new THREE.Color().setHex( cmap[isovalue][1] );
-
-    //end task1
 
     return new THREE.Mesh( geometry, material );
 
@@ -121,20 +118,17 @@ function Isosurfaces( volume, isovalue )
 
         return index;
     }
-    
-    // chang for task2
+
     function interpolated_vertex( v0, v1, s )
     {
-	var vx = volume.resolution.x;
-	var vxy = vx * volume.resolution.y;
-	var id0 = v0.x + ( v0.y * vx ) + ( v0.z * vxy );
-	var id1 = v1.x + ( v1.y * vx ) + ( v1.z * vxy );
-	
-	var s0 = volume.values[id0][0];
-	var s1 = volume.values[id1][0];
-	var t = ( s - s0 ) / ( s1 - s0 );
-	
-        return new THREE.Vector3().addVectors( v0.multiplyScalar( 1 - t ), v1.multiplyScalar( t ) );
+      var i0 = v0.x + (v0.y * volume.resolution.x) + (v0.z * volume.resolution.x * volume.resolution.y);
+    	var i1 = v1.x + (v1.y * volume.resolution.x) + (v1.z * volume.resolution.x * volume.resolution.y);
+
+    	var s0 = volume.values[i0][0];
+    	var s1 = volume.values[i1][0];
+
+    	var t = (s-s0)/(s1-s0);
+
+    	return new THREE.Vector3().addVectors(v0.multiplyScalar(1-t),v1.multiplyScalar(t));
     }
-    // end task2
 }
