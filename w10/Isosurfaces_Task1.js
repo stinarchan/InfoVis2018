@@ -2,7 +2,7 @@ function Isosurfaces( volume, isovalue )
 {
     var geometry = new THREE.Geometry();
     var material = new THREE.MeshLambertMaterial();
-    
+
     var smin = volume.min_value;
     var smax = volume.max_value;
     isovalue = KVS.Clamp( isovalue, smin, smax );
@@ -62,7 +62,6 @@ function Isosurfaces( volume, isovalue )
 
     geometry.computeVertexNormals();
 
-    //add color map for task1
     var cmap = [];
     for ( var i = 0; i < 256; i++ )
     {
@@ -75,8 +74,6 @@ function Isosurfaces( volume, isovalue )
     }
 
     material.color = new THREE.Color().setHex( cmap[isovalue][1] );
-
-    //end 
 
     return new THREE.Mesh( geometry, material );
 
