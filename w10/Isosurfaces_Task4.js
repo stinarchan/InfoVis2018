@@ -1,5 +1,17 @@
 function Isosurfaces( volume, isovalue )
 {
+    // Create color map
+    var cmap = [];
+    for ( var i = 0; i < 256; i++ )
+    {
+        var S = i / 255.0; // [0,1]
+        var R = Math.max( Math.cos( ( S - 1.0 ) * Math.PI ), 0.0 );
+        var G = Math.max( Math.cos( ( S - 0.5 ) * Math.PI ), 0.0 );
+        var B = Math.max( Math.cos( S * Math.PI ), 0.0 );
+        var color = new THREE.Color( R, G, B );
+        cmap.push( [ S, '0x' + color.getHexString() ] );
+    }
+
     // material -> shaderMaterial
     var light = new THREE.PointLight();
     light.position.set( 5, 5, 5 );
@@ -10,7 +22,8 @@ function Isosurfaces( volume, isovalue )
         vertexShader: document.getElementById('Blinn.vert').text,
         fragmentShader: document.getElementById('Blinn.frag').text,
         uniforms: {
-            light_position: { type: 'v3', value: light.position } 
+            light_position: { type: 'v3', value: light.position } ,
+            isovalue_color: { type: 'v3', value: new THREE.Color().setHex( cmap[isovalue][1] )} 
         }
     });
 
@@ -72,8 +85,6 @@ function Isosurfaces( volume, isovalue )
     }
 
     geometry.computeVertexNormals();
-
-    material.color = new THREE.Color( "white" );
     
     return new THREE.Mesh( geometry, material );
 
