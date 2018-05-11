@@ -29,7 +29,6 @@
 			float dd = max( dot( N, L ), 0.0 );
 			float ds = pow( max( dot( N, H ), 0.0 ), n );
 			if ( dd <= 0.0 ) { ds = 0.0; }
-
 			float Ia = ka;
 			float Id = kd * dd;
 			float Is = ks * ds;
@@ -41,7 +40,6 @@
 			vec3 L = normalize( light_position - point_position.xyz );
 			vec3 N = normalize( normal_vector );
 			vec3 V = normalize( cameraPosition - point_position.xyz );
-
 			vec3 shaded_color = BlinnPhongReflection( C, L, N, V );
 			gl_FragColor = vec4( shaded_color, 1.0 );
 		}
@@ -51,12 +49,10 @@
 		varying vec3 point_color;
 		varying vec4 point_position;
 		varying vec3 normal_vector;
-
 		void main() {
 			point_color = color;
 			point_position = modelViewMatrix * vec4( position, 1.0 );
 			normal_vector = normalMatrix * normal;
-			
 			gl_Position = projectionMatrix * point_position;
 		} 
 	</script>
