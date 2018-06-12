@@ -4,7 +4,7 @@ function main()
   var screen = new KVS.THREEScreen();
 
   screen.init(volume, {
-    width: window.innerWidth * 0.8,
+    width: window.innerWidth * 0.78,
     height: window.innerHeight * 0.87,
     targetDom: document.getElementById('display'),
     enableAutoResize: false
@@ -68,7 +68,7 @@ function main()
 
     window.addEventListener('resize', function() {
       screen.resize([
-        window.innerWidth * 0.8,
+        window.innerWidth * 0.78,
         window.innerHeight * 0.87
       ]);
     });
